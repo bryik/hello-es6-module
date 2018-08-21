@@ -152,4 +152,4 @@ The following diagram tries to show how the final exported object, `hw`, is buil
 
 <img src='./rollup-diagram.png' width='811'>
 
-Note that this is just one way to structure a module. Go out and look at other modules to see different patterns. For instance, D3.js is composed of many modules each with its own repo. The main D3.js repo has one `index.js` which re-exports all of them under the `d3` global reference.
+Note that this is just one way to structure a module. Go out and look at other modules to see different patterns. For instance, D3.js is composed of many modules each with its own repo. The main D3.js repo has one `index.js` which [re-exports all of them](https://github.com/d3/d3/blob/master/index.js) under the `d3` global reference.
