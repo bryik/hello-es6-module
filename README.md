@@ -58,7 +58,7 @@ This command gets Python to spin up a simple server available at [localhost](127
 
 ## Rollup
 
-Rollup is a module bundler. Unlike most programming languages, JavaScript did not always have a native mechanism for importing and exporting code. With languages like Python, you can import a function defined in another file simply by writing something like `import <module_path>`. Getting similar functionality in JavaScript requires the use of a bundler like Rollup.
+Rollup is a module bundler. Unlike most programming languages, JavaScript has not always had a native mechanism for importing and exporting code. In languages like Python, importing a function defined in another file is as simple as `import <module_path>`. Getting similar functionality in JavaScript requires the use of a bundler like Rollup.
 
 ### Rollup Plugins
 
@@ -66,7 +66,7 @@ Three plugins are used:
 
 - [rollup-plugin-node-resolve](https://github.com/rollup/rollup-plugin-node-resolve)
 
-Node-resolve allows Rollup to `import` modules from NPM. This allows you to `npm install` a package and use it with your library.
+Node-resolve allows Rollup to `import` modules from NPM. This allows you to `npm install` a package and use it in your library.
 
 - [rollup-plugin-commonjs](https://github.com/rollup/rollup-plugin-commonjs)
 
@@ -78,7 +78,7 @@ The Babel plugin simplifies the interaction between Babel and Rollup. More on Ba
 
 ### ES6 `import` and `export`
 
-The unusual history of JavaScript's module feature has resulted in [unusual syntax](http://2ality.com/2014/09/es6-modules-final.html) and debates (e.g. named-exports vs default-exports). To learn more about JavaScript modules, refer to:
+The unusual history of JavaScript's module feature has resulted in [unusual syntax](http://2ality.com/2014/09/es6-modules-final.html) and debates (e.g. [named-exports vs default-exports](https://news.ycombinator.com/item?id=15765409)). To learn more about JavaScript modules, refer to:
 
 - [Modules (Chapter 10 of Eloquent JavaScript)](https://eloquentjavascript.net/10_modules.html)
 
@@ -93,10 +93,10 @@ The unusual history of JavaScript's module feature has resulted in [unusual synt
 For example:
 
 ```js
-// Using template strings (not supported in IE 11)
 var a = 2;
 var b = 3;
 
+// Using a template string (not supported in IE 11)
 console.log(`${a} + ${b} = ${a + b}`);
 // >>> 2 + 3 = 5
 ```
@@ -113,11 +113,11 @@ console.log(a + " + " + b + " = " + (a + b));
 
 ### Syntax Transformation vs Polyfills
 
-Not everything can be transformed. Template strings are really just a cleaner way of doing something that JavaScript could already do. Features that add new functionality, such as Promises, can't be patched so easily. Weird metaphor incoming: if you think of a browser as a wall, Babel can re-arrange the stuff that's already on the wall but it cannot fill any cracks or holes in the drywall. This is where pollyfills come in.
+Not everything can be transformed. Template strings are really just a cleaner way of doing something that JavaScript could already do. Features that add new functionality, such as Promises, can't be patched so easily. Weird metaphor incoming: if you think of a browser as a wall, Babel can re-arrange the stuff that's already on the wall but it cannot fill cracks or holes. This is where pollyfills come in.
 
-A polyfill is code that implements a missing feature. For example, Stefan Penner's [ES6 Promise](https://github.com/stefanpenner/es6-promise) library provides a polyfill for, you guessed it, [ES6 Promises](http://www.ecma-international.org/ecma-262/6.0/#sec-promise-constructor). Running Penner's script ensures that any code on your site that uses Promises works on all browsers. If a browser supports Promises, the polyfill does not run. To go back to the analogy: polyfills seal up holes in a browser like Polyfilla seals cracks and holes on a wall.
+A polyfill is code that implements a missing feature. For example, Stefan Penner's [ES6 Promise](https://github.com/stefanpenner/es6-promise) library provides a polyfill for, you guessed it, [ES6 Promises](http://www.ecma-international.org/ecma-262/6.0/#sec-promise-constructor). Running Penner's script ensures that any code on your site that uses Promises works on all browsers. If a browser supports Promises, the polyfill does not run. To go back to the analogy: polyfills seal up holes in browsers like Polyfilla seals holes on walls.
 
-**Polyfills can be expensive**. Not in the monetary sense, but in the size on disk. Without polyfills, the `hello-world.js` bundle in `./dist` is 1 KB. With all polyfills, the size is 207 KB. For comparison, jQuery is 86.3 KB. That may not sound like a lot, but it can add up if your website is already bringing in lots of other JS libraries and CSS. You also need to consider users with data caps browsing on underpowered devices over slow connections. To get file sizes down, only polyfill features that you actually need. If you don't care about supporting Internet Explorer 8, don't include polyfills for it. In a similar vein, only polyfill features that you use.
+**Polyfills can be expensive**. Not in the monetary sense, but in disk size. Without polyfills, the `hello-world.js` bundle in `./dist` is 1 KB. With all polyfills, the size is 207 KB. For comparison, jQuery is 86.3 KB. That may not sound like a lot, but it can add up if your website is already bringing in lots of other JS libraries and CSS. You also need to consider users with data caps browsing on underpowered devices over slow connections. To get file sizes down, only polyfill features that you actually need. If you don't care about supporting Internet Explorer 8, don't include polyfills for it. In a similar vein, only polyfill features that you use.
 
 ## Rollup - The Big Picture
 
