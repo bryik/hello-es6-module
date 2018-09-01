@@ -10,6 +10,8 @@ This repo is an experiment with ES6 modules, Rollup, and Babel.
     ./  = Current directory
     ../ = Parent of current directory
     ../../ = Two directories backwards
+    
+Credit: [GibboK](https://stackoverflow.com/a/33774151/6591491).
 
 ## NPM
 
