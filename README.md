@@ -31,18 +31,18 @@ NPM controls the build process through scripts defined in `package.json` and thr
 ```js
 // package.json
 "scripts": {
-  "dist": "rollup -c",
+  "dist": "rollup --config rollup.config.prod.js",
   "postdist": "npm run test",
   "test": "node ./test/test.js",
-  "web": "python -m http.server --bind 127.0.0.1"
+  "dev": "rollup --config rollup.config.dev.js --watch"
 },
 ```
 
-There are three scripts defined above: `dist`, `postdist`, `test`, and `web`. They can be executed in the terminal with `npm run <script name>`.
+There are three scripts defined above: `dev`, `test`, `dist`, and `postdist`. They can be executed in the terminal with `npm run <script name>`.
 
 - `npm run dist`
 
-This command runs rollup with the configuration flag. Rollup automatically looks for `rollup.config.js` and starts bundling the code in `./src`. The finished bundle is placed in `./dist`.
+This command runs Rollup with the `rollup.config.prod.js` configuration which bundles the code in `./src` into a single file in `./dist`.
 
 - `postdist`
 
@@ -52,9 +52,11 @@ This command automatically runs after the `dist` command has finished. It runs t
 
 This command has Node execute `./test/test.js`.
 
-- `npm run web`
+- `npm run dev`
 
-This command gets Python to spin up a simple server available at [localhost](127.0.0.1). There you will find `index.html` which imports `hello-world.js` in a script tag.
+This runs Rollup with the `rollup.config.dev.js` configuration which is nearly identical to `rollup.config.prod.js` except that it uses the [serve](https://github.com/thgh/rollup-plugin-serve) plugin to spin up a live server. Your browser will automatically be opened to [http://localhost:10001/](http://localhost:10001/). There you will find `index.html` which imports `hello-world.js` in a script tag. The `--watch` flag tells Rollup to rebuild if it detects any changes in your code.
+
+To stop the server, press `CTRL-C` in your shell.
 
 ## Rollup
 
@@ -75,6 +77,10 @@ Most packages distributed on NPM are [in CommonJS format](https://rollupjs.org/g
 - [rollup-plugin-babel](https://github.com/rollup/rollup-plugin-babel)
 
 The Babel plugin simplifies the interaction between Babel and Rollup. More on Babel later.
+
+- [rollup-plugin-serve](https://github.com/thgh/rollup-plugin-serve)
+
+This plugin offers a convenient server for testing your bundle in the browser.
 
 ### ES6 `import` and `export`
 
@@ -121,7 +127,7 @@ A polyfill is code that implements a missing feature. For example, Stefan Penner
 
 ## Rollup - The Big Picture
 
-The `./src` directory contains the `hw` module. The module name is set in `./rollup.config.js`, which has been set to pull the NPM package name specified in `./package.json`. The properties of the module are controlled by `./src/index.js`; the functions exported by this file will be available through `hw.<function_name>`. Functions aren't the only thing you can export, variables work too.
+The `./src` directory contains the `hw` module. The module name is set in `./rollup.config.prod.js`, which has been set to pull the NPM package name specified in `./package.json`. The properties of the module are controlled by `./src/index.js`; the functions exported by this file will be available through `hw.<function_name>`. Functions aren't the only thing you can export, variables work too.
 
 Rollup bundles all of the code in the `src` folder into a single `hello-world.js` file located in `./dist`. Add this file with a script tag and `hw` will be added to the global scope:
 
