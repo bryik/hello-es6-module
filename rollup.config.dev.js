@@ -8,7 +8,7 @@ import serve from 'rollup-plugin-serve';
 export default {
   input: './src/index.js',
   output: {
-    file: `./dist/hello-world.js`,
+    file: `./docs/hello-world-dev.js`,
     format: 'umd',
     // This is the name of the exported global object.
     // So the world function could be called with hello.world();
