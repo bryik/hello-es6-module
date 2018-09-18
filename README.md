@@ -54,7 +54,7 @@ This command has Node execute `./test/test.js`.
 
 - `npm run dev`
 
-This runs Rollup with the `rollup.config.dev.js` configuration which is very similar to `rollup.config.prod.js` except that it uses the [serve](https://github.com/thgh/rollup-plugin-serve) plugin to spin up a live server and drops the bundle in `./docs` as `hello-world-dev.js`. The only real advantage to adding a second bundle in `./docs` is that it can be referenced by GitHub Pages. Your browser will automatically be opened to [http://localhost:10001/](http://localhost:10001/). There you will find `index.html` which imports `hello-world-dev.js` in a script tag. The `--watch` flag tells Rollup to rebuild if it detects any changes in your code.
+This runs Rollup with the `rollup.config.dev.js` configuration which is very similar to `rollup.config.prod.js` except that it uses the [serve](https://github.com/thgh/rollup-plugin-serve) plugin to spin up a live server and drops the bundle in `./docs` as `hello-world-dev.js`. The only real advantage to adding a second bundle in `./docs` is that it can be referenced by GitHub Pages allowing [a live example](https://bryik.github.io/hello-es6-module/). Your browser will automatically be opened to [http://localhost:10001/](http://localhost:10001/). There you will find `index.html` which imports `hello-world-dev.js` in a script tag. The `--watch` flag tells Rollup to rebuild if it detects any changes in your code.
 
 To stop the server, press `CTRL-C` in your shell.
 
