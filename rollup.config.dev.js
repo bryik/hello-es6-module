@@ -22,7 +22,7 @@ export default {
     }),
     serve({
       open: true,
-      contentBase: './docs'
+      contentBase: ['./docs', './']
     })
   ]
 }
