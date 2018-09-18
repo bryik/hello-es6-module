@@ -52,7 +52,7 @@ This command has Node execute `./test/test.js`.
 
 - `npm run dev`
 
-This runs Rollup with the `rollup.config.dev.js` configuration which drops the finished build in `./docs` and uses the [serve](https://github.com/thgh/rollup-plugin-serve) plugin to spin up a live server. Your browser will automatically be opened to [http://localhost:10001/](http://localhost:10001/). There you will find `index.html` which imports `hello-world.js` in a script tag. The `--watch` flag tells Rollup to rebuild if it detects any changes in your code.
+This runs Rollup with the `rollup.config.dev.js` configuration which is nearly identical to `rollup.config.prod.js` except that it uses the [serve](https://github.com/thgh/rollup-plugin-serve) plugin to spin up a live server. Your browser will automatically be opened to [http://localhost:10001/](http://localhost:10001/). There you will find `index.html` which imports `hello-world.js` in a script tag. The `--watch` flag tells Rollup to rebuild if it detects any changes in your code.
 
 To stop the server, press `CTRL-C` in your shell.
 
