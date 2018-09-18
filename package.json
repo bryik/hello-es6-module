@@ -4,10 +4,10 @@
   "description": "An experiment with ES6 modules, Rollup, and Babel.",
   "main": "./src/index.js",
   "scripts": {
-    "dist": "rollup -c",
+    "dist": "rollup --config rollup.config.prod.js",
     "postdist": "npm run test",
     "test": "node ./test/test.js",
-    "web": "python -m http.server --bind 127.0.0.1"
+    "dev": "rollup --config rollup.config.dev.js --watch"
   },
   "author": "Ben Pyrik <ben@wsundine.com>",
   "license": "MIT",
@@ -18,7 +18,8 @@
     "rollup": "^0.64.1",
     "rollup-plugin-babel": "^3.0.7",
     "rollup-plugin-commonjs": "^9.1.5",
-    "rollup-plugin-node-resolve": "^3.3.0"
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-serve": "^0.4.2"
   },
   "dependencies": {
     "the-answer": "^1.0.0"
